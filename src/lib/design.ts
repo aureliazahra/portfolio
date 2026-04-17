@@ -9,7 +9,7 @@ export type DesignPost = {
   description: string
   year: string
   tools: string[]
-  emoji: string
+
   tags: string[]
 }
 export const designs: DesignPost[] = [
@@ -24,7 +24,6 @@ export const designs: DesignPost[] = [
     description: 'Complete UI system for a modern payment app. 120+ screens, design tokens, and interactive prototype built entirely in Figma.',
     year: '2024',
     tools: ['Figma', 'Protopie'],
-    emoji: '💳',
     tags: ['UI Kit', 'Fintech', 'Design System'],
   },
   {
@@ -38,7 +37,7 @@ export const designs: DesignPost[] = [
     description: 'Full brand identity system for a premium lifestyle brand. Logo, typography, color system, stationery, and brand guidelines.',
     year: '2024',
     tools: ['Illustrator', 'Photoshop', 'InDesign'],
-    emoji: '✦',
+
     tags: ['Branding', 'Logo', 'Identity'],
   },
   {
@@ -51,7 +50,7 @@ export const designs: DesignPost[] = [
     description: 'Series of 30 social media posts for a fashion brand launch. Consistent visual language, animated stories, and carousel layouts.',
     year: '2025',
     tools: ['Figma', 'After Effects'],
-    emoji: '🌙',
+
     tags: ['Social Media', 'Motion', 'Fashion'],
   },
   {
@@ -65,7 +64,7 @@ export const designs: DesignPost[] = [
     description: 'Dark-mode analytics dashboard with complex data visualization, real-time charts, and a modular component system.',
     year: '2025',
     tools: ['Figma', 'Framer'],
-    emoji: '📊',
+
     tags: ['Dashboard', 'Data Viz', 'Dark Mode'],
   },
   {
@@ -78,7 +77,7 @@ export const designs: DesignPost[] = [
     description: 'Series of deep-sea creature illustrations combining digital art with editorial typography for a conceptual magazine spread.',
     year: '2024',
     tools: ['Procreate', 'Photoshop'],
-    emoji: '🌊',
+
     tags: ['Illustration', 'Editorial', 'Digital Art'],
   },
   {
@@ -91,7 +90,7 @@ export const designs: DesignPost[] = [
     description: 'Mobile UI design for a plant care companion app. Gentle, organic visual system with custom illustrations and micro-interactions.',
     year: '2025',
     tools: ['Figma', 'Lottie'],
-    emoji: '🌿',
+
     tags: ['Mobile UI', 'Organic', 'Illustration'],
   },
 ]
