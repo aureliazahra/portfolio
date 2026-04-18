@@ -240,10 +240,12 @@ export default function AboutSection() {
           <div className="relative">
             {/* Main visual card — the large right-side element from the image */}
             <motion.div
-              style={{ y: bgPanelY }}
-              className="relative w-full overflow-hidden border border-white/10"
-              style={{ height: 'clamp(340px, 48vw, 600px)' } as React.CSSProperties}
-            >
+  style={{
+    y: bgPanelY,
+    height: 'clamp(340px, 48vw, 600px)',
+  }}
+  className="relative w-full overflow-hidden border border-white/10"
+>
               <Image
   src="/previews/about.png"
   alt="About visual"
