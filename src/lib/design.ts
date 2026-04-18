@@ -1,9 +1,10 @@
 export type DesignPost = {
   id: string
   title: string
-  type: 'behance' | 'unpublished'
+  type: 'behance' | 'unpublished' | 'instagram Post'
   category: 'ui-ux' | 'social-media' | 'branding' | 'illustration'
   behanceUrl?: string
+  instagramUrl?: string
   coverGradient: string
   accentColor: string
   description: string

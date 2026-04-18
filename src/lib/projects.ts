@@ -8,7 +8,6 @@ export type Project = {
   accentColor: string
   year: string
   status: 'completed' | 'ongoing'
-  emoji: string
   featured: boolean
 }
 export const projects: Project[] = [
@@ -22,7 +21,6 @@ export const projects: Project[] = [
     accentColor: '#8b5cf6',
     year: '2024',
     status: 'completed',
-    emoji: '🛍️',
     featured: true,
   },
   {
@@ -35,7 +33,7 @@ export const projects: Project[] = [
     accentColor: '#10b981',
     year: '2024',
     status: 'completed',
-    emoji: '💪',
+
     featured: true,
   },
   {
@@ -48,7 +46,6 @@ export const projects: Project[] = [
     accentColor: '#f43f5e',
     year: '2025',
     status: 'ongoing',
-    emoji: '🌐',
     featured: true,
   },
   {
@@ -61,7 +58,6 @@ export const projects: Project[] = [
     accentColor: '#f59e0b',
     year: '2024',
     status: 'completed',
-    emoji: '💰',
     featured: false,
   },
   {
@@ -74,7 +70,6 @@ export const projects: Project[] = [
     accentColor: '#0ea5e9',
     year: '2023',
     status: 'completed',
-    emoji: '🌤️',
     featured: false,
   },
   {
@@ -87,7 +82,6 @@ export const projects: Project[] = [
     accentColor: '#84cc16',
     year: '2025',
     status: 'ongoing',
-    emoji: '🍳',
     featured: false,
   },
 ]

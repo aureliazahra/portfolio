@@ -120,7 +120,6 @@ function ProjectCard({
           animate={{ scale: hovered ? 1.3 : 1, rotate: hovered ? 10 : 0 }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          {project.emoji}
         </motion.div>
         {/* Bottom gradient */}
         <div className="absolute inset-0 bg-linear-to-t from-[#080808] via-transparent to-transparent opacity-80" />
