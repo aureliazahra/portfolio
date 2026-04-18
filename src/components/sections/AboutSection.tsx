@@ -143,7 +143,7 @@ export default function AboutSection() {
 
       {/* Category Label */}
       <div className="flex items-center gap-6 mb-6">
-        <div className="w-10 h-[1px] bg-white/30" />
+        <div className="w-10 h-px bg-white/30" />
         <span className="text-sm tracking-[0.35em] uppercase text-white/70 font-medium">
           {group.category}
         </span>
@@ -198,7 +198,7 @@ export default function AboutSection() {
           <div>
 
             {/* VISUAL CARD */}
-            <div className="relative mb-12 h-72 rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-amber-500/10 via-indigo-500/10 to-black">
+            <div className="relative mb-12 h-72 rounded-3xl overflow-hidden border border-white/10 bg-linear-to-br from-amber-500/10 via-indigo-500/10 to-black">
               <div className="absolute inset-0 backdrop-blur-[2px]" />
 
               <div className="absolute bottom-6 left-6 right-6">

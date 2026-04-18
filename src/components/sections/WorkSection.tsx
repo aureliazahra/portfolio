@@ -57,7 +57,7 @@ function ProjectCard({
     >
       {/* Gradient preview */}
       <div
-        className={`relative h-64 md:h-80 bg-gradient-to-br ${project.previewColor} overflow-hidden`}
+        className={`relative h-64 md:h-80 bg-linear-to-br ${project.previewColor} overflow-hidden`}
       >
         {/* Mock phone frames */}
         <div className="absolute inset-0 flex items-center justify-center gap-8">
@@ -123,7 +123,7 @@ function ProjectCard({
           {project.emoji}
         </motion.div>
         {/* Bottom gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#080808] via-transparent to-transparent opacity-80" />
         {/* Status badge */}
         <div className="absolute top-5 right-5">
           <span
