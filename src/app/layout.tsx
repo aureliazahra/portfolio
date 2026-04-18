@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Digital Atelier — Flutter Developer & Designer",
+  title: "Aurelia Zahra — Flutter Developer & Designer",
   description:
-    "Portfolio seorang Flutter Developer & UI/UX Designer. Building mobile experiences and crafting visuals that communicate.",
+    "Portfolio of Aurelia Zahra, a Flutter Developer & UI/UX Designer. Building mobile experiences and crafting visuals that communicate.",
 };
 
 import "./globals.css";
