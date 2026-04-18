@@ -46,7 +46,7 @@ export default function Navbar() {
               style={{ fontFamily: 'var(--font-sans)' }}
             >
               <span style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '1.1rem' }}>A</span>
-              telier
+              urelia
             </button>
           </MagneticButton>
           {/* Desktop nav */}

@@ -49,7 +49,7 @@ export default function PageLoader() {
               className="text-lg text-cream/40 ml-1"
               style={{ fontFamily: 'var(--font-sans)' }}
             >
-              telier
+              urelia
             </span>
           </motion.div>
           {/* Progress bar */}

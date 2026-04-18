@@ -11,7 +11,7 @@ const stats = [
 const skills = [
   { category: 'Dev', items: ['Flutter', 'Dart', 'Firebase', 'Supabase', 'REST APIs', 'NextJs', 'React', 'Vite', 'Python', 'Tailwindcss', 'Java', 'Sql database'] },
   { category: 'Design', items: ['Figma', 'Canva', 'Affinity by Canva', 'Adobe Lightroom', 'Snapseed', 'Ibis Paint X' ] },
-  { category: 'Other', items: ['Git', 'GitHub', 'VS Code', 'Postman', 'Capcut'] },
+  { category: 'Other', items: ['Git', 'GitHub', 'VS Code', 'NodeJs', 'Apache Netbeans', 'Postman', 'Capcut'] },
 ]
 const contacts = [
   { label: 'Email', value: 'aurelaurelzr@gmail.com', href: 'https://mail.google.com/mail/u/0/#inbox?compose=NZVHFxmKGFdCzFFPgwWKjSxbgSxVHxdRQvSXkQJZdvZmzsTbhQxtbcCfJdGsXLvtNXTqtg', icon: '✉' },
