@@ -9,6 +9,7 @@
   --color-accent: #c9a96e;
 }
 * {
+  /* cursor: none !important; */
   box-sizing: border-box;
 }
 html,
