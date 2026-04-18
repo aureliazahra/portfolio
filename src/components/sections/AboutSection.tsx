@@ -1,22 +1,24 @@
 import { useRef, useState } from 'react'
+import Image from 'next/image'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import { WipeText, ScrollReveal } from '../ui/AnimatedText'
 const stats = [
-  { value: '6+', label: 'Flutter Apps', desc: 'Shipped to production' },
-  { value: '20+', label: 'Design Projects', desc: 'Across all categories' },
+  { value: '10+', label: 'Developing Projects', desc: 'Shipped to production' },
+  { value: '100+', label: 'Design Projects', desc: 'Across all categories' },
   { value: '3', label: 'Years', desc: 'Of crafting experiences' },
   { value: '∞', label: 'Curiosity', desc: 'Never stops' },
 ]
 const skills = [
-  { category: 'Mobile Dev', items: ['Flutter', 'Dart', 'Firebase', 'Supabase', 'REST APIs', 'BLoC', 'Riverpod', 'GetX'] },
-  { category: 'Design', items: ['Figma', 'Adobe XD', 'Illustrator', 'Photoshop', 'After Effects', 'Procreate'] },
-  { category: 'Other', items: ['Git', 'GitHub', 'VS Code', 'Postman', 'Notion', 'Framer'] },
+  { category: 'Dev', items: ['Flutter', 'Dart', 'Firebase', 'Supabase', 'REST APIs', 'NextJs', 'React', 'Vite', 'Python', 'Tailwindcss', 'Java', 'Sql database'] },
+  { category: 'Design', items: ['Figma', 'Canva', 'Affinity by Canva', 'Adobe Lightroom', 'Snapseed', 'Ibis Paint X' ] },
+  { category: 'Other', items: ['Git', 'GitHub', 'VS Code', 'Postman', 'Capcut'] },
 ]
 const contacts = [
-  { label: 'Email', value: 'hello@atelier.dev', href: 'mailto:hello@atelier.dev', icon: '✉' },
-  { label: 'GitHub', value: '@username', href: 'https://github.com', icon: '⌥' },
-  { label: 'Behance', value: 'behance.net/you', href: 'https://behance.net', icon: '◈' },
-  { label: 'LinkedIn', value: 'Your Name', href: 'https://linkedin.com', icon: '⊞' },
+  { label: 'Email', value: 'aurelaurelzr@gmail.com', href: 'https://mail.google.com/mail/u/0/#inbox?compose=NZVHFxmKGFdCzFFPgwWKjSxbgSxVHxdRQvSXkQJZdvZmzsTbhQxtbcCfJdGsXLvtNXTqtg', icon: '✉' },
+  { label: 'Instagram', value: '@aureliaow_', href: 'https://www.instagram.com/aureliaow_/', icon: '📷' },
+  { label: 'GitHub', value: '@aureliazahra', href: 'https://github.com/aureliazahra', icon: '⌥' },
+  { label: 'Behance', value: 'behance.net/aureliazahraa', href: 'https://www.behance.net/aureliazahraa', icon: '◈' },
+  { label: 'LinkedIn', value: 'Aurelia Zahra', href: 'https://www.linkedin.com/in/aurelia-zahra-0275a4346/', icon: '⊞' },
 ]
 function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -35,7 +37,7 @@ function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
         className="font-bold text-white mb-1 group-hover:text-amber-300 transition-colors duration-300 leading-none"
         style={{ fontSize: 'clamp(36px, 4vw, 60px)', fontFamily: 'var(--font-sans)' }}
       >
-        {stat.value}
+        {stat.value} 
       </div>
       <div className="text-[11px] font-semibold text-white/50 uppercase tracking-[0.2em] mb-1">
         {stat.label}
@@ -101,7 +103,7 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative overflow-hidden pt-40 md:pt-56"
+      className="relative overflow-hidden pt-24 md:pt-32"
     >
       {/* ── Huge background watermark ── */}
       <motion.div
@@ -174,13 +176,13 @@ export default function AboutSection() {
               </p>
             </InfoCard>
             {/* Timeline card — mimics the dot-list from the image */}
-            <InfoCard title="Timeline" delay={0.12}>
+            <InfoCard title="Learning and Creating Timeline" delay={0.12}>
               <div className="space-y-4">
                 {[
-                  { year: '2024 →', role: 'Senior Flutter Dev', place: 'Freelance' },
-                  { year: '2023', role: 'UI/UX Designer', place: 'Studio Kreasi' },
-                  { year: '2022', role: 'Flutter Developer', place: 'Startup Malang' },
-                  { year: '2021', role: 'Started Journey', place: 'Self-taught' },
+                  { year: '2026 →', role: 'UI/UX & Flutter Developer', place: 'Blending design and code into meaningful products' },
+                  { year: '2025', role: 'Flutter Developer', place: 'Started from school demands, grew into real projects' },
+                  { year: '2024', role: 'Graphic Designer', place: 'Turning curiosity into published visual works' },
+                  { year: '2023', role: 'Graphic Designer', place: 'Self-taught, driven purely by curiosity' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="flex flex-col items-center pt-1.5">
@@ -225,7 +227,7 @@ export default function AboutSection() {
                     <div className="text-[11px] tracking-[0.25em] uppercase text-white/60 group-hover:text-white/90 font-medium transition-colors duration-300">
                       Download CV
                     </div>
-                    <div className="text-[9px] tracking-widest text-white/25 uppercase">PDF · 2025</div>
+                    <div className="text-[9px] tracking-widest text-white/25 uppercase">PDF · 2026</div>
                   </div>
                 </div>
                 <span className="text-white/30 group-hover:text-amber-400 transition-colors duration-300 text-xs tracking-widest">
@@ -242,9 +244,14 @@ export default function AboutSection() {
               className="relative w-full overflow-hidden border border-white/10"
               style={{ height: 'clamp(340px, 48vw, 600px)' } as React.CSSProperties}
             >
-              {/* gradient bg */}
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/8 via-indigo-500/8 to-black" />
-              {/* Grid overlay — brutalist detail */}
+              <Image
+  src="/previews/about.png"
+  alt="About visual"
+  fill
+  priority
+  className="object-cover opacity-70"
+/>
+        {/* Grid overlay — brutalist detail */}
               <div
                 className="absolute inset-0 opacity-[0.04]"
                 style={{
@@ -381,7 +388,7 @@ export default function AboutSection() {
               {/* CV download — also here in contact section */}
               <ScrollReveal delay={0.1}>
                 <a
-                  href="/cv.pdf"
+                  href="/public/cv.pdf"
                   download
                   className="
                     group inline-flex items-center gap-3
@@ -454,11 +461,11 @@ export default function AboutSection() {
             </div>
             <div className="w-px h-3 bg-white/10" />
             <div className="text-[10px] tracking-[0.35em] uppercase text-white/20">
-              © 2025
+              © 2026
             </div>
           </div>
           <div className="text-[10px] tracking-widest uppercase text-white/15">
-            Crafted with Flutter · Figma · Framer ✦
+            Crafted with love ✦
           </div>
         </div>
       </div>

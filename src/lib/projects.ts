@@ -1,4 +1,6 @@
-export type Project = {
+const preview1 = '/previews/1.jpg'
+
+export interface Project {
   id: string
   title: string
   description: string
@@ -6,82 +8,104 @@ export type Project = {
   githubUrl: string
   previewColor: string
   accentColor: string
+
+  // ✅ ubah ini
+  previewImage?: any
+
   year: string
-  status: 'completed' | 'ongoing'
+  status: 'completed' | 'in-progress'
   featured: boolean
 }
-export const projects: Project[] = [
+
+const projects: Project[] = [
   {
-    id: 'flutter-ecommerce',
-    title: 'ShopFlow',
-    description: 'Full-featured e-commerce app with real-time cart, Firebase Auth, Firestore database, and Stripe payment integration. Smooth animations throughout.',
-    tags: ['Flutter', 'Firebase', 'Stripe', 'Riverpod'],
+    id: 'Gojek FE',
+    title: 'Gojek Front End Clone',
+    description:
+      'This is a clone of Gojek’s frontend built with Flutter. The project is open-source and available on GitHub.',
+    tags: ['Flutter Frontend'],
+    githubUrl: 'https://github.com/aureliazahra/gojek-fe',
+    previewColor: 'from-violet-900/40 to-indigo-900/40',
+    accentColor: '##00880c',
+    previewImage: '/previews/proyek1.png',
+    year: '2025',
+    status: 'completed',
+    featured: true,
+  },
+  {
+    id: 'Florist',
+    title: 'Florist Frontend',
+    description:
+      'This is a frontend for a florist e-commerce app built with Flutter. It features a clean design, smooth animations, and a user-friendly interface.',
+    tags: ['Flutter Frontend'],
+    githubUrl: 'https://github.com/aureliazahra/uuk-sems3-flutternav',
+    previewColor: 'from-violet-900/40 to-indigo-900/40',
+    accentColor: '#8b5cf6',
+    previewImage: '/previews/proyek2.png',
+    year: '2025',
+    status: 'completed',
+    featured: true,
+  },
+
+  {
+    id: 'Jelajah Nusantara',
+    title: 'Jelajah Nusantara Frontend',
+    description:
+      'This is a frontend for Jelajah Nusantara app.',
+    tags: ['Flutter Frontend', 'Rest API'],
+    githubUrl: 'https://github.com',
+    previewColor: 'from-violet-900/40 to-indigo-900/40',
+    accentColor: '##d1a929',
+    previewImage: '/previews/proyek3.png',
+    year: '2025',
+    status: 'completed',
+    featured: true,
+  },
+
+  {
+    id: 'Aura',
+    title: 'Aura (Automation Face Recognition',
+    description:
+      'This is an AI face recognition project built with React Vite. It uses machine learning algorithms (Python) to recognize faces and provide real-time feedback.',
+    tags: ['Python', 'React', 'Vite'],
+    githubUrl: 'https://github.com/aureliazahra/bismillahsukses',
+    previewColor: 'from-violet-900/40 to-indigo-900/40',
+    accentColor: '##190580',
+    previewImage: '/previews/proyek4.png',
+    year: '2024',
+    status: 'completed',
+    featured: true,
+  },
+  
+  {
+    id: 'Wondertrail',
+    title: 'Wondertrail Frontend',
+    description:
+      'This is an app for travel information',
+    tags: ['Flutter frontend'],
+    githubUrl: 'https://github.com/aureliazahra/wondertall',
+    previewColor: 'from-violet-900/40 to-indigo-900/40',
+    accentColor: '#8b5cf6',
+    previewImage: '/previews/proyek5.png',
+    year: '2026',
+    status: 'completed',
+    featured: true,
+  },
+  {
+    id: 'Ruang Sehat',
+    title: 'Ruang Sehat App',
+    description:
+      'Health article Ruang Sehat',
+    tags: ['Flutter', 'RestAPI'],
     githubUrl: 'https://github.com',
     previewColor: 'from-violet-900/40 to-indigo-900/40',
     accentColor: '#8b5cf6',
-    year: '2024',
-    status: 'completed',
+    previewImage: '/previews/proyek6.png',
+    year: '2026',
+    status: 'in-progress',
     featured: true,
   },
-  {
-    id: 'flutter-fitness',
-    title: 'PulseTrack',
-    description: 'Fitness tracking app with animated progress charts, workout plans, health metrics dashboard, and wearable device sync via Bluetooth.',
-    tags: ['Flutter', 'Dart', 'BLoC', 'SQLite'],
-    githubUrl: 'https://github.com',
-    previewColor: 'from-emerald-900/40 to-teal-900/40',
-    accentColor: '#10b981',
-    year: '2024',
-    status: 'completed',
 
-    featured: true,
-  },
-  {
-    id: 'flutter-social',
-    title: 'Commune',
-    description: 'Community-driven social app with real-time chat, story feature, media sharing, and a custom feed algorithm built on Firebase.',
-    tags: ['Flutter', 'Firebase', 'GetX', 'WebRTC'],
-    githubUrl: 'https://github.com',
-    previewColor: 'from-rose-900/40 to-pink-900/40',
-    accentColor: '#f43f5e',
-    year: '2025',
-    status: 'ongoing',
-    featured: true,
-  },
-  {
-    id: 'flutter-finance',
-    title: 'Ledger',
-    description: 'Personal finance manager with expense tracking, budget goals, beautiful charts, CSV export, and multi-currency support.',
-    tags: ['Flutter', 'Hive', 'FL Chart', 'Provider'],
-    githubUrl: 'https://github.com',
-    previewColor: 'from-amber-900/40 to-orange-900/40',
-    accentColor: '#f59e0b',
-    year: '2024',
-    status: 'completed',
-    featured: false,
-  },
-  {
-    id: 'flutter-weather',
-    title: 'Stratos',
-    description: 'Weather app with immersive animated backgrounds that change based on weather conditions, hourly forecast, and location-based alerts.',
-    tags: ['Flutter', 'OpenWeather API', 'Lottie', 'Dio'],
-    githubUrl: 'https://github.com',
-    previewColor: 'from-sky-900/40 to-blue-900/40',
-    accentColor: '#0ea5e9',
-    year: '2023',
-    status: 'completed',
-    featured: false,
-  },
-  {
-    id: 'flutter-recipe',
-    title: 'Mise en Place',
-    description: 'Recipe discovery app with AI-powered ingredient recognition, meal planning, and nutritional analysis. Features offline-first architecture.',
-    tags: ['Flutter', 'TensorFlow Lite', 'Supabase', 'GraphQL'],
-    githubUrl: 'https://github.com',
-    previewColor: 'from-lime-900/40 to-green-900/40',
-    accentColor: '#84cc16',
-    year: '2025',
-    status: 'ongoing',
-    featured: false,
-  },
 ]
+
+export default projects

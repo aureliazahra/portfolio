@@ -8,7 +8,7 @@ import DesignSection from '@/components/sections/DesignSection'
 import AboutSection from '@/components/sections/AboutSection'
 import MarqueeSection from '@/components/sections/MarqueeSection'
 
-import { projects } from '@/lib/projects'
+import projects from '@/lib/projects'
 import { designs } from '@/lib/design'
 import { useLenis } from '@/hooks/useLenis'
 
@@ -30,7 +30,7 @@ export default function Page() {
       <main>
         <PageLoader />
         <Hero />
-        <WorkSection projects={projects} />
+        <WorkSection projects= { projects } />
         <MarqueeSection />
         <DesignSection designs={designs} />
         <AboutSection />

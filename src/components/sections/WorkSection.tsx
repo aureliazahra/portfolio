@@ -9,6 +9,31 @@ import {
 import type { Project } from '../../lib/projects'
 import { WipeText, ScrollReveal } from '../ui/AnimatedText'
 import MagneticButton from '../ui/MagneticButton'
+
+import Image from 'next/image'
+
+function PreviewImage({
+  src,
+  alt,
+  priority = false,
+}: {
+  src: string | { src: string }
+  alt: string
+  priority?: boolean
+}) {
+  const imgSrc = typeof src === 'string' ? src : src.src
+
+  return (
+    <Image
+      src={imgSrc}
+      alt={alt}
+      fill
+      sizes="(max-width: 768px) 100vw, 600px"
+      priority={priority}
+      className="object-cover transition-all duration-700 group-hover:scale-105"
+    />
+  )
+}
 /* ─────────────────────────────────────────────
    Project Card
 ───────────────────────────────────────────── */
@@ -55,75 +80,29 @@ function ProjectCard({
         transition: 'box-shadow 0.4s ease',
       }}
     >
-      {/* Gradient preview */}
+      {/* ── Preview area ── */}
       <div
         className={`relative h-64 md:h-80 bg-linear-to-br ${project.previewColor} overflow-hidden`}
       >
-        {/* Mock phone frames */}
-        <div className="absolute inset-0 flex items-center justify-center gap-8">
-          <motion.div
-            className="w-28 h-52 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-sm flex flex-col overflow-hidden"
-            animate={{
-              y: hovered ? -10 : 0,
-              rotate: hovered ? -3 : -6,
-              x: hovered ? -6 : 0,
-            }}
-            transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-            style={{ transformStyle: 'preserve-3d' }}
-          >
-            <div className="h-7 bg-black/50 flex items-center justify-center">
-              <div className="w-12 h-1 rounded-full bg-white/20" />
-            </div>
-            <div className="flex-1 p-3 space-y-2">
-              <div className="h-2 rounded bg-white/15 w-full" />
-              <div className="h-2 rounded bg-white/10 w-3/4" />
-              <div className="h-10 rounded bg-white/[0.08] mt-2" />
-              <div className="h-2 rounded bg-white/10 w-full" />
-              <div className="h-2 rounded bg-white/[0.08] w-2/3" />
-            </div>
-            <div className="h-9 border-t border-white/10 flex items-center justify-around px-3">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="w-5 h-5 rounded-full bg-white/15" />
-              ))}
-            </div>
-          </motion.div>
-          <motion.div
-            className="w-28 h-52 rounded-2xl border border-white/10 bg-black/30 backdrop-blur-sm flex flex-col overflow-hidden"
-            animate={{
-              y: hovered ? -18 : 0,
-              rotate: hovered ? 3 : 6,
-              x: hovered ? 6 : 0,
-            }}
-            transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-            style={{ transformStyle: 'preserve-3d' }}
-          >
-            <div className="h-7 bg-black/50 flex items-center justify-center">
-              <div className="w-12 h-1 rounded-full bg-white/20" />
-            </div>
-            <div className="flex-1 p-3">
-              <div className="h-20 rounded-lg bg-white/[0.08] mb-3" />
-              <div className="space-y-1.5">
-                <div className="h-2 rounded bg-white/15 w-full" />
-                <div className="h-2 rounded bg-white/10 w-4/5" />
-              </div>
-            </div>
-            <div className="h-9 border-t border-white/10 flex items-center justify-around px-3">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="w-5 h-5 rounded-full bg-white/15" />
-              ))}
-            </div>
-          </motion.div>
-        </div>
-        {/* Emoji */}
+       
+        {project.previewImage && (
+          <PreviewImage src={project.previewImage} alt={`${project.title} preview`} />
+        )}
+        
+        <div
+          className={`absolute inset-0 bg-linear-to-br ${project.previewColor}`}
+          style={{ opacity: project.previewImage ? 0.55 : 1 }}
+        />
+        
         <motion.div
           className="absolute top-5 left-5 text-4xl"
           animate={{ scale: hovered ? 1.3 : 1, rotate: hovered ? 10 : 0 }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
         </motion.div>
-        {/* Bottom gradient */}
+        {/* ⑤ Bottom fade-to-background */}
         <div className="absolute inset-0 bg-linear-to-t from-[#080808] via-transparent to-transparent opacity-80" />
-        {/* Status badge */}
+        {/* ⑥ Status badge */}
         <div className="absolute top-5 right-5">
           <span
             className="px-3 py-1 text-[10px] tracking-widest uppercase rounded-full border"
@@ -142,7 +121,7 @@ function ProjectCard({
             {project.status}
           </span>
         </div>
-        {/* Hover overlay — GitHub link */}
+        {/* ⑦ Hover overlay — GitHub link */}
         <AnimatePresence>
           {hovered && (
             <motion.div
@@ -171,7 +150,7 @@ function ProjectCard({
             </motion.div>
           )}
         </AnimatePresence>
-        {/* 3D shine */}
+        {/* ⑧ 3-D shine */}
         <motion.div
           className="absolute inset-0 pointer-events-none"
           animate={{
@@ -181,7 +160,7 @@ function ProjectCard({
           }}
         />
       </div>
-      {/* Card info */}
+      {/* ── Card info ── */}
       <div className="p-7">
         <div className="flex items-start justify-between mb-4">
           <h3
@@ -219,7 +198,7 @@ function ProjectCard({
           ))}
         </div>
       </div>
-      {/* Accent bottom border on hover */}
+      {/* ── Accent bottom border on hover ── */}
       <motion.div
         className="absolute bottom-0 left-0 right-0 h-px"
         animate={{
@@ -234,13 +213,6 @@ function ProjectCard({
 }
 /* ─────────────────────────────────────────────
    Diagonal Scroll Container
-   FIXES APPLIED:
-   1. Cards overlap visibly — when card[i] is centered, card[i-1]
-      is partially visible (exiting top-left) and card[i+1] is
-      partially visible (entering bottom-right). Achieved by
-      shrinking the "dead zone" buffer from 0.85 → 0.55 of a slice,
-      and reducing travel distances (40vw / 35vh instead of 90/70).
-   2. Staggered z-index so the active card always sits on top.
 ───────────────────────────────────────────── */
 function DiagonalScrollCards({ projects }: { projects: Project[] }) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -273,66 +245,43 @@ function DiagonalScrollCards({ projects }: { projects: Project[] }) {
           style={{ perspective: '1200px' }}
         >
           {projects.map((project, i) => {
-            /*
-              ── Keyframe timeline for card[i] ──
-              The full scroll [0..1] is divided into `total` equal slices.
-              Card[i]'s "center moment" is at progress = (i + 0.5) / total.
-              We want neighbouring cards to be half-visible when the
-              current card is centred, so the travel distance is small
-              and the overlap buffer is tight (0.55 of a slice).
-              Stops:
-                enter0  → card starts sliding in  (bottom-right)
-                enter1  → card fully centred
-                exit0   → card starts sliding out  (top-left)
-                exit1   → card fully off-screen
-              The gap between enter1 and exit0 is 0 — the card is
-              centred for exactly one "tick" — but thanks to the
-              spring this feels like a smooth pause.
-            */
             const sliceCenter = (i + 0.5) / total
-            const halfBuffer = 0.55 / total   // half the overlap window
-            const enter0 = Math.max(0, sliceCenter - halfBuffer * 1.6)  // begin entering
-            const enter1 = sliceCenter                                    // fully centred
-            const exit0  = sliceCenter                                    // begin exiting (same moment)
-            const exit1  = Math.min(1, sliceCenter + halfBuffer * 1.6)  // fully off-screen
-            /*
-              Travel distances kept modest so neighbours are
-              partially visible when the active card is centred.
-              ~40vw / 35vh means a neighbouring card sits ~40% off
-              to the side — visible but clearly "behind".
-            */
+            const halfBuffer = 0.55 / total
+            const enter0 = Math.max(0, sliceCenter - halfBuffer * 1.6)
+            const enter1 = sliceCenter
+            const exit0  = sliceCenter
+            const exit1  = Math.min(1, sliceCenter + halfBuffer * 1.6)
+            // eslint-disable-next-line react-hooks/rules-of-hooks
             const x = useTransform(
               scrollYProgress,
               [enter0, enter1, exit0, exit1],
               ['48vw', '0vw', '0vw', '-48vw']
             )
+            // eslint-disable-next-line react-hooks/rules-of-hooks
             const y = useTransform(
               scrollYProgress,
               [enter0, enter1, exit0, exit1],
               ['38vh', '0vh', '0vh', '-38vh']
             )
+            // eslint-disable-next-line react-hooks/rules-of-hooks
             const opacity = useTransform(
               scrollYProgress,
               [enter0, enter1, exit0, exit1],
               [0, 1, 1, 0]
             )
+            // eslint-disable-next-line react-hooks/rules-of-hooks
             const scale = useTransform(
               scrollYProgress,
               [enter0, enter1, exit0, exit1],
               [0.82, 1, 1, 0.82]
             )
-            /*
-              Rotation:
-                Entry (bottom-right): clockwise +7°
-                Active: 0°
-                Exit (top-left): counter-clockwise −7°
-            */
+            // eslint-disable-next-line react-hooks/rules-of-hooks
             const rotate = useTransform(
               scrollYProgress,
               [enter0, enter1, exit0, exit1],
               [7, 0, 0, -7]
             )
-            // Active card sits on top
+            // eslint-disable-next-line react-hooks/rules-of-hooks
             const zIndex = useTransform(
               scrollYProgress,
               [enter0, enter1, exit0, exit1],
@@ -441,14 +390,6 @@ function CardCounter({
 }
 /* ─────────────────────────────────────────────
    Infinity Marquee
-   Cara kerja:
-   - Satu wrapper flex berisi DUA set item identik (copy A + copy B)
-   - Wrapper dianimasikan dari x: "0%" → x: "-50%" secara infinite loop
-   - Karena copy A dan B identik dan masing-masing 50% total lebar,
-     saat wrapper sudah bergerak -50% (= tepat satu set) → snap balik
-     ke 0% terasa mulus tanpa glitch.
-   - `ease: "linear"` memastikan kecepatan konstan tanpa accelerasi.
-   - `repeat: Infinity` + `repeatType: "loop"` untuk true infinite loop.
 ───────────────────────────────────────────── */
 const MARQUEE_ITEMS = ['Flutter', 'Dart', 'Firebase', 'Figma', 'UI/UX', 'Mobile', 'Design', 'Code']
 function InfinityMarquee() {
@@ -460,19 +401,14 @@ function InfinityMarquee() {
         borderBottom: '1px solid rgba(240,236,228,0.05)',
       }}
     >
-      {/*
-        Outer: overflow-hidden → sembunyikan konten di luar batas
-        Inner motion.div: flex row, lebar = 2x konten (dua set),
-        animasi geser kiri -50% → loop seamless
-      */}
       <motion.div
         className="flex whitespace-nowrap"
         animate={{ x: ['0%', '-50%'] }}
         transition={{
-          duration: 18,        // kecepatan: semakin kecil = semakin cepat
-          ease: 'linear',      // kecepatan konstan, tidak ada ease in/out
-          repeat: Infinity,    // ulangi selamanya
-          repeatType: 'loop',  // langsung loop dari awal (bukan reverse)
+          duration: 18,
+          ease: 'linear',
+          repeat: Infinity,
+          repeatType: 'loop',
         }}
         style={{ willChange: 'transform' }}
       >
@@ -525,7 +461,7 @@ export default function WorkSection({ projects }: { projects: Project[] }) {
     <section ref={sectionRef} id="work" className="relative">
       {/* ── Header ── */}
       <div className="px-6 md:px-14 lg:px-20 pt-32 md:pt-48 pb-20">
-        <div className="flex items-center justify-between mb-20 overflow-hidden">
+        <div className="flex items-center justify-between mb-20">
           <motion.div style={{ x: headerX, opacity: headerOpacity }}>
             <span
               className="text-[11px] tracking-[0.3em] uppercase block mb-4"
@@ -541,7 +477,7 @@ export default function WorkSection({ projects }: { projects: Project[] }) {
                 color: '#f0ece4',
               }}
             >
-              <WipeText text="Flutter" delay={0} />
+              <WipeText text="Development" delay={0} />
               <br />
               <span
                 style={{
@@ -590,7 +526,7 @@ export default function WorkSection({ projects }: { projects: Project[] }) {
           <div className="flex justify-center">
             <MagneticButton strength={0.35}>
               <a
-                href="https://github.com"
+                href="https://github.com/aureliazahra"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 px-8 py-4 rounded-full text-sm transition-all duration-300"

@@ -152,7 +152,7 @@ export default function Hero() {
                     transition: 'transform 0.4s ease',
                   }}
                 >
-                  DIGITAL
+                  AURELIA'S
                 </h1>
               </motion.div>
             </div>
@@ -173,7 +173,7 @@ export default function Hero() {
                     color: 'transparent',
                   }}
                 >
-                  Atelier
+                  Portfolio
                 </h1>
                 {/* Spinning badge */}
                 <motion.div
@@ -217,8 +217,8 @@ export default function Hero() {
               className="text-cream/40 text-sm leading-relaxed"
               style={{ fontFamily: 'var(--font-sans)' }}
             >
-              Building mobile experiences with Flutter and crafting visuals
-              that communicate. Every pixel has a purpose.
+              A designer and developer who believes that good design speaks,even without words.
+              I create with purpose, clarity, and impact.
             </p>
           </div>
           {/* CTA buttons */}

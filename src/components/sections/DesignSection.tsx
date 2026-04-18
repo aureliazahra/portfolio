@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import type { DesignPost } from '@/lib/design.ts'
 import { WipeText, ScrollReveal } from '../ui/AnimatedText'
 import MagneticButton from '../ui/MagneticButton'
+import Image from 'next/image'
 function DesignCard({ design, index }: { design: DesignPost; index: number }) {
   const [hovered, setHovered] = useState(false)
   return (
@@ -43,7 +44,7 @@ function DesignCard({ design, index }: { design: DesignPost; index: number }) {
         />
         {/* ── Gradient bg atmosphere ── */}
         <div
-          className={`absolute inset-0 bg-gradient-to-br ${design.coverGradient} opacity-80`}
+          className={`absolute inset-0 bg-linear-to-br ${design.coverGradient} opacity-10`}
         />
         {/* ── Subtle grid lines ── */}
         <div
@@ -54,55 +55,18 @@ function DesignCard({ design, index }: { design: DesignPost; index: number }) {
             backgroundSize: '48px 48px',
           }}
         />
-        {/* ── Center abstract visual ── */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            className="relative"
-            animate={{
-              scale: hovered ? 1.06 : 1,
-              opacity: hovered ? 0.55 : 0.3,
-            }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
-            {/* Outer ring */}
-            <div
-              className="rounded-full border"
-              style={{
-                width: '120px',
-                height: '120px',
-                borderColor: design.accentColor.replace('0.6', '0.4'),
-              }}
-            />
-            {/* Inner square rotated */}
-            <motion.div
-              className="absolute border"
-              animate={{ rotate: hovered ? 45 : 20 }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              style={{
-                width: '70px',
-                height: '70px',
-                top: '50%',
-                left: '50%',
-                marginTop: '-35px',
-                marginLeft: '-35px',
-                borderColor: design.accentColor.replace('0.6', '0.5'),
-              }}
-            />
-            {/* Center dot */}
-            <div
-              className="absolute rounded-full"
-              style={{
-                width: '8px',
-                height: '8px',
-                top: '50%',
-                left: '50%',
-                marginTop: '-4px',
-                marginLeft: '-4px',
-                background: design.accentColor,
-              }}
-            />
-          </motion.div>
-        </div>
+        {/* ── Preview Image ── */}
+{design.coverImage && (
+  <div className="absolute inset-0">
+    <Image
+      src={design.coverImage}
+      alt={design.title}
+      fill
+      sizes="(max-width: 768px) 100vw, 33vw"
+      className="object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
+    />
+  </div>
+)}
         {/* ── Type badge – top left ── */}
         <div className="absolute top-0 left-0 z-20 p-4">
           <span
@@ -325,7 +289,7 @@ export default function DesignSection({ designs }: { designs: DesignPost[] }) {
           <div className="flex justify-center mt-20">
             <MagneticButton strength={0.3}>
               <a
-                href="https://behance.net"
+                href="https://www.behance.net/aureliazahraa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4 px-12 py-5 border text-base transition-all duration-300"

@@ -7,15 +7,13 @@ const items = [
   { text: '✦', type: 'star' },
   { text: 'Brand Identity', type: 'text' },
   { text: '✦', type: 'star' },
-  { text: 'Motion Design', type: 'text' },
+  { text: 'Graphic Design', type: 'text' },
   { text: '✦', type: 'star' },
   { text: 'Mobile Apps', type: 'text' },
   { text: '✦', type: 'star' },
-  { text: 'Illustration', type: 'text' },
+  { text: 'Developer', type: 'text' },
   { text: '✦', type: 'star' },
   { text: 'Figma', type: 'text' },
-  { text: '✦', type: 'star' },
-  { text: 'Firebase', type: 'text' },
   { text: '✦', type: 'star' },
 ]
 export default function MarqueeSection() {
